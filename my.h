@@ -1,4 +1,3 @@
-
 /*
 ** my.h for  in /home/christian.betta/minishel/Minishell1-master
 **
@@ -6,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 18:24:46 2017 Christian Betta
-** Last update Wed Apr  5 09:00:32 2017 Christian Betta
+** Last update Wed Apr  5 09:07:57 2017 Christian Betta
 */
 
 #include <sys/wait.h>
@@ -45,6 +44,8 @@ typedef struct  s_var
 
 char    *get_next_line(int fd);
 char    *get_next_line_dbg(int fd);
+void	commande_multiple(t_mini c, char **envp);
+void	commande_unique(t_mini c, char **envp);
 char    *my_epure(char *src);
 void    test_exit(t_mini c, char **envp);
 int	chemin(char *str);

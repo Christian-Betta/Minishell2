@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 19:11:56 2017 Christian Betta
-** Last update Wed Apr  5 09:03:39 2017 Christian Betta
+** Last update Wed Apr  5 09:04:52 2017 Christian Betta
 */
 
 #include "my.h"
@@ -106,7 +106,7 @@ void	commande_multiple(t_mini c, char **envp)
                     my_strncmp("cd", c.cmd[c.i]) == 0)
 	cd(c);
       else if ((chemin(c.cmd[c.i]) == 1) ||(
-					    c.cmd[c.i][0] == '.' && c.cmd[c.i][1] == '/'))
+		    c.cmd[c.i][0] == '.' && c.cmd[c.i][1] == '/'))
 	my_exec_prog(c);
       else if (my_strncmp("PATH", c.cmd[c.i]) == 0)
 	{
