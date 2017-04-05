@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 19:11:43 2017 Christian Betta
-** Last update Thu Mar 30 11:49:17 2017 Christian Betta
+** Last update Wed Apr  5 11:33:37 2017 Christian Betta
 */
 
 #include "my.h"
@@ -13,6 +13,21 @@
 void    my_putchar(char c)
 {
   write(1, &c, 1);
+}
+
+void	my_putstr2(char *str)
+{
+  int	i;
+
+  i = 1;
+  while (str[i] != '\0')
+  {
+    if (str[i] == '\n')
+      i++;
+    else
+      my_putchar(str[i]);
+    i++;
+  }
 }
 
 void    my_putstr(char *str)

@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 17:27:05 2017 Christian Betta
-** Last update Wed Apr  5 09:32:31 2017 Christian Betta
+** Last update Wed Apr  5 11:24:58 2017 Christian Betta
 */
 
 #include "my.h"
@@ -24,7 +24,7 @@ int	chemin(char *str)
   return (0);
 }
 
-void     my_exec_prog(t_mini ex)
+void     my_exec_prog(t_mini ex, char **envp)
 {
   int   pid;
   int   status;
@@ -32,7 +32,6 @@ void     my_exec_prog(t_mini ex)
   char  **command;
   int   p;
   char **tmp;
-  char  **env;
 
   a = 0;
   tmp = malloc(sizeof(char *) * 10000);
@@ -43,7 +42,7 @@ void     my_exec_prog(t_mini ex)
     {
       pid = fork();
       if (pid == 0)
-	execve(command[0], tmp, env);
+	execve(command[0], tmp, envp);
       else if (pid > 0)
 	waitpid(pid, &status, 0);
       if (status == 139)
@@ -71,7 +70,9 @@ int             main(int ac, char **av, char **envp)
 {
   t_mini        c;
 
+  c.my_env = malloc(sizeof(char *) * (1000000));
   c.buffer = malloc(sizeof(char) * (1000));
+  c.my_env = envp;
   my_putstr("> ");
   signal(SIGINT, control_c);
   c.array = copy_env(envp);

@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 19:11:56 2017 Christian Betta
-** Last update Wed Apr  5 10:27:55 2017 Christian Betta
+** Last update Wed Apr  5 11:25:41 2017 Christian Betta
 */
 
 #include "my.h"
@@ -103,11 +103,11 @@ void	commande_multiple(t_mini c, char **envp)
     {
       c.argument = my_str_to_wordtab(c.cmd[c.i], ' ');
       if (my_strncmp("cd ..", c.cmd[c.i]) == 0 ||
-                    my_strncmp("cd", c.cmd[c.i]) == 0)
+	  my_strncmp("cd", c.cmd[c.i]) == 0)
 	cd(c);
       else if ((chemin(c.cmd[c.i]) == 1) ||(
-		    c.cmd[c.i][0] == '.' && c.cmd[c.i][1] == '/'))
-	my_exec_prog(c);
+	  c.cmd[c.i][0] == '.' && c.cmd[c.i][1] == '/'))
+	my_exec_prog(c, envp);
       else if (my_strncmp("PATH", c.cmd[c.i]) == 0)
 	{
 	  my_put_str_tab_path(c.array);
@@ -130,7 +130,7 @@ void	commande_unique(t_mini c, char **envp)
   if (my_strncmp("cd", c.argument[0]) == 0)
     cd(c);
   else if ((c.buffer[0] == '.' && c.buffer[1] == '/') || chemin(c.buffer) == 1)
-    my_exec_prog(c);
+    my_exec_prog(c, envp);
   else if (my_strncmp("PATH", c.buffer) == 0)
     {
       my_put_str_tab_path(c.array);
