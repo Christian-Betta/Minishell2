@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 19:11:56 2017 Christian Betta
-** Last update Wed Apr  5 13:52:15 2017 Christian Betta
+** Last update Wed Apr  5 15:53:55 2017 Christian Betta
 */
 
 #include "my.h"
@@ -25,12 +25,27 @@ void            my_exit(char *buffer)
     }
 }
 
+char	*find_pwd(char **tabl)
+{
+  int	i;
+  int	b;
+
+  i = 0;
+  while (tabl[i])
+    {
+      if (tabl[i][0] == 'P' && tabl[i][1] == 'W' && tabl[i][2] == 'D' && tabl[i][3] == '=')
+	b = i;
+      i++;
+    }
+  return (tabl[b]);
+}
+
 int	exec_all(t_mini ex, char **envp)
 {
-  int           a;
+  int	a;
 
   a = 0;
-  if ((execve(ex.str_cat, ex.argument, envp)) == -1)
+  if ((execve(ex.str_cat, ex.argument, ex.my_env)) == -1)
     ++a;
   else
     return (0);
