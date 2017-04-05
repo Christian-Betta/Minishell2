@@ -6,7 +6,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 18:24:46 2017 Christian Betta
-** Last update Tue Apr  4 14:33:07 2017 Christian Betta
+** Last update Wed Apr  5 09:00:32 2017 Christian Betta
 */
 
 #include <sys/wait.h>
@@ -29,6 +29,11 @@ typedef struct  S_minishell
   char          **argument;
   pid_t         pid;
   char          *buffer;
+  int		a;
+  int		i;
+  int		nbr;
+  char		**cmd;
+  char		*str;
 }               t_mini;
 
 typedef struct  s_var
@@ -40,6 +45,7 @@ typedef struct  s_var
 
 char    *get_next_line(int fd);
 char    *get_next_line_dbg(int fd);
+char    *my_epure(char *src);
 void    test_exit(t_mini c, char **envp);
 int	chemin(char *str);
 char    **copy_env(char **env);

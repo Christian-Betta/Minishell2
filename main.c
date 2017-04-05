@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 17:27:05 2017 Christian Betta
-** Last update Tue Apr  4 16:16:45 2017 Christian Betta
+** Last update Tue Apr  4 18:40:19 2017 Christian Betta
 */
 
 #include "my.h"
@@ -32,7 +32,7 @@ void     my_exec_prog(t_mini ex)
   char  **command;
   int   p;
   char **tmp;
-  char	**env;
+  char  **env;
 
   a = 0;
   tmp = malloc(sizeof(char *) * 10000);
@@ -43,11 +43,12 @@ void     my_exec_prog(t_mini ex)
     {
       pid = fork();
       if (pid == 0)
-	execve(command[1], tmp, env);
+	execve(command[0], tmp, env);
       else if (pid > 0)
 	waitpid(pid, &status, 0);
       if (status == 139)
-        my_putstr("Segmentation fault (core dumped)\n");
+	my_putstr("Segmentation fault (core dumped)");
+      my_putchar('\n');
     }
   else
     {

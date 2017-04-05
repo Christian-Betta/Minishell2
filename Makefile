@@ -5,7 +5,7 @@
 ## Login   <christian.betta@epitech.net>
 ## 
 ## Started on  Thu Mar 23 17:54:25 2017 Christian Betta
-## Last update Tue Apr  4 14:44:56 2017 Christian Betta
+## Last update Tue Apr  4 18:43:57 2017 Christian Betta
 ##
 
 SRC	=	shell1.c		\
@@ -13,7 +13,8 @@ SRC	=	shell1.c		\
 		main.c			\
 		my_str_to_wordtab.c	\
 		my_all.c		\
-		my_strcmp.c
+		my_strcmp.c		\
+		my_all2.c
 
 LIBS	=	-L. -lgnl -Wextra -Wall -Werror
 
