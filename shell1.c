@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 19:11:56 2017 Christian Betta
-** Last update Wed Apr  5 09:04:52 2017 Christian Betta
+** Last update Wed Apr  5 10:27:55 2017 Christian Betta
 */
 
 #include "my.h"
@@ -25,7 +25,7 @@ void            my_exit(char *buffer)
     }
 }
 
-int             exec_all(t_mini ex, char **envp)
+int	exec_all(t_mini ex, char **envp)
 {
   int           a;
 
@@ -127,11 +127,9 @@ void	commande_unique(t_mini c, char **envp)
   int	a;
 
   c.argument = my_str_to_wordtab(c.buffer, ' ');
-  if (my_strncmp("cd ..", c.buffer) == 0 || my_strncmp("cd", c.buffer) == 0)
+  if (my_strncmp("cd", c.argument[0]) == 0)
     cd(c);
-  else if (c.buffer[0] == '.' && c.buffer[1] == '/')
-    my_exec_prog(c);
-  else if (chemin(c.buffer) == 1)
+  else if ((c.buffer[0] == '.' && c.buffer[1] == '/') || chemin(c.buffer) == 1)
     my_exec_prog(c);
   else if (my_strncmp("PATH", c.buffer) == 0)
     {
