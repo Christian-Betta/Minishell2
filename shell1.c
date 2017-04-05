@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 19:11:56 2017 Christian Betta
-** Last update Wed Apr  5 11:25:41 2017 Christian Betta
+** Last update Wed Apr  5 13:52:15 2017 Christian Betta
 */
 
 #include "my.h"
@@ -98,6 +98,7 @@ void	commande_multiple(t_mini c, char **envp)
 {
   c.i = 0;
   c.nbr = nbr_comm(c.buffer);
+  c.buffer = my_epure_2(c.buffer);
   c.cmd = my_str_to_wordtab(c.buffer, ';');
   while (c.i <= c.nbr)
     {
