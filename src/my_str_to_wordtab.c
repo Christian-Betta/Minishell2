@@ -5,10 +5,10 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 17:27:24 2017 Christian Betta
-** Last update Thu Mar 23 18:51:31 2017 Christian Betta
+** Last update Mon Apr 10 13:44:49 2017 Christian Betta
 */
 
-#include "my.h"
+#include "include/my.h"
 
 int     count_word(char *str, char carac)
 {
@@ -50,7 +50,7 @@ char    **my_str_to_wordtab(char *str, char car)
   t_var c;
 
   init_var(&c);
-  tabl = malloc(sizeof(*tabl) * ((count_word(str, car) + 1)));
+  tabl = malloc(sizeof(*tabl) * ((count_word(str, car) + 2)));
   if (tabl == NULL)
     exit (0);
   while (str[c.i] != '\n' && str[c.i] != '\0')

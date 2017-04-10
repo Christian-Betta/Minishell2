@@ -5,29 +5,27 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 19:11:43 2017 Christian Betta
-** Last update Wed Apr  5 11:33:37 2017 Christian Betta
+** Last update Mon Apr 10 13:25:36 2017 Christian Betta
 */
 
-#include "my.h"
+#include "include/my.h"
 
 void    my_putchar(char c)
 {
   write(1, &c, 1);
 }
 
-void	my_putstr2(char *str)
+void    my_put_str_tab(char **tabl)
 {
-  int	i;
+  int   a;
 
-  i = 1;
-  while (str[i] != '\0')
-  {
-    if (str[i] == '\n')
-      i++;
-    else
-      my_putchar(str[i]);
-    i++;
-  }
+  a = 0;
+  while (tabl[a])
+    {
+      my_putstr(tabl[a]);
+      my_putchar('\n');
+      a++;
+    }
 }
 
 void    my_putstr(char *str)
@@ -39,18 +37,6 @@ void    my_putstr(char *str)
     {
       my_putchar(str[i]);
       i++;
-    }
-}
-
-void	my_put_str_tab_path(char **tabl)
-{
-  int	a;
-
-  a = 0;
-  while (tabl[a])
-    {
-      my_putstr(tabl[a]);
-      a++;
     }
 }
 

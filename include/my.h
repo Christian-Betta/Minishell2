@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 18:24:46 2017 Christian Betta
-** Last update Wed Apr  5 15:54:25 2017 Christian Betta
+** Last update Mon Apr 10 13:38:54 2017 Christian Betta
 */
 
 #include <sys/wait.h>
@@ -43,6 +43,7 @@ typedef struct  s_var
   int           a;
 }               t_var;
 
+int     nbr_comm(char *str);
 char    *get_next_line(int fd);
 char    *get_next_line_dbg(int fd);
 void	commande_multiple(t_mini c, char **envp);
