@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 19:11:43 2017 Christian Betta
-** Last update Mon Apr 10 13:25:36 2017 Christian Betta
+** Last update Mon Apr 10 15:16:33 2017 Christian Betta
 */
 
 #include "include/my.h"
@@ -49,7 +49,6 @@ int     my_strlen(char *str)
     i++;
   return (i);
 }
-
 
 char    *mystrcat(char *dest, char *src)
 {

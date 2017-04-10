@@ -5,12 +5,10 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Tue Apr  4 17:05:49 2017 Christian Betta
-** Last update Mon Apr 10 13:33:47 2017 Christian Betta
+** Last update Mon Apr 10 15:06:57 2017 Christian Betta
 */
 
 #include "include/my.h"
-
-
 
 void    my_put_str_tab_path(char **tabl)
 {
@@ -50,7 +48,7 @@ char	*my_epure_2(char *str)
   dest = malloc(sizeof(char) * 1000);
   while (str[i] != '\0')
     {
-      if (str[i] == ' ')
+      if (str[i] == ' ' || str[i] == '\t')
 	i++;
       else
 	{
@@ -76,4 +74,18 @@ int     nbr_comm(char *str)
       i++;
     }
   return (a);
+}
+
+int     chemin(char *str)
+{
+  int   i;
+
+  i = 0;
+  while (str[i] != '\0')
+    {
+      if (str[i] == '/')
+	return (1);
+      i++;
+    }
+  return (0);
 }
