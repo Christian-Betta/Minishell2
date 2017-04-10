@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Tue Apr  4 17:05:49 2017 Christian Betta
-** Last update Mon Apr 10 15:06:57 2017 Christian Betta
+** Last update Mon Apr 10 16:38:22 2017 Christian Betta
 */
 
 #include "include/my.h"
@@ -46,6 +46,7 @@ char	*my_epure_2(char *str)
   a = 0;
   i = 0;
   dest = malloc(sizeof(char) * 1000);
+  i = 0;
   while (str[i] != '\0')
     {
       if (str[i] == ' ' || str[i] == '\t')

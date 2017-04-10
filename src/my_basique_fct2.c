@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Mon Apr 10 13:26:48 2017 Christian Betta
-** Last update Mon Apr 10 15:00:44 2017 Christian Betta
+** Last update Mon Apr 10 16:44:12 2017 Christian Betta
 */
 
 #include "include/my.h"
@@ -16,13 +16,15 @@ char    *my_epure(char *src)
 
   size = my_strlen(src) - 2;
   size = size + 2;
-  while ((src[size] == '\t' || src[size] == ' ') && src[size] != '\0')
+  while ((src[size] == '\t' || src[size] == ' ')
+	 && src[size] != '\0')
     {
       src[size] = '\0';
       size = size - 2;
       size++;
     }
-  while (*src == ' ' && *src != '\0')
+  while ((*src == ' ' || *src == '\t')
+	 && *src != '\0')
     src = src + 1;
   return (src);
 }

@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 19:12:02 2017 Christian Betta
-** Last update Mon Apr 10 15:17:07 2017 Christian Betta
+** Last update Mon Apr 10 17:56:06 2017 Christian Betta
 */
 
 #include "include/my.h"
@@ -41,7 +41,12 @@ void             cd(t_mini cd)
   tabl = malloc(sizeof(char *) * 10);
   tabl = my_str_to_wordtab(cd.buffer,' ');
   if ((my_strncmp("cd", tabl[0])) == 0)
-    chdir(tabl[1]);
+    {
+      if (tabl[1] == NULL)
+	chdir("/home/");
+      else
+	chdir(tabl[1]);
+    }
   free(tabl);
 }
 

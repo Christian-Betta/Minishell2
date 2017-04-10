@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 17:27:24 2017 Christian Betta
-** Last update Mon Apr 10 13:44:49 2017 Christian Betta
+** Last update Mon Apr 10 17:05:30 2017 Christian Betta
 */
 
 #include "include/my.h"
@@ -19,6 +19,8 @@ int     count_word(char *str, char carac)
   b = 0;
   while (str[a] != '\0' && str[a] != '\n')
     {
+      if (str[a] == '\t')
+	a++;
       if (str[a] == carac && str[a + 1] != '\0')
         b++;
       a++;
@@ -32,7 +34,11 @@ int     count_char(char *str, char carac)
 
   i = 0;
   while ((str[i] != carac) && (str[i] != '\0') && (str[i] != '\n'))
-    i++;
+    {
+      if (str[i] == '\t')
+	i++;
+      i++;
+    }
   i += 1;
   return (i);
 }
@@ -66,7 +72,7 @@ char    **my_str_to_wordtab(char *str, char car)
       if (tabl[c.a] == NULL)
         exit (0);
       while ((str[c.i] != car)  && (str[c.i] != '\n') && (str[c.i] != '\0'))
-        tabl[c.a][c.b++] = str[c.i++];
+	tabl[c.a][c.b++] = str[c.i++];
       tabl[c.a][c.b] = '\0';
     }
   tabl[c.a + 1] = 0;
