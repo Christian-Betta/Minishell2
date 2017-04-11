@@ -5,10 +5,11 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 19:11:43 2017 Christian Betta
-** Last update Mon Apr 10 15:16:33 2017 Christian Betta
+** Last update Tue Apr 11 15:21:08 2017 Christian Betta
 */
 
-#include "include/my.h"
+//#include "include/my.h"
+#include"my.h"
 
 void    my_putchar(char c)
 {

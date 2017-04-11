@@ -5,10 +5,11 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Mon Apr 10 14:32:39 2017 Christian Betta
-** Last update Tue Apr 11 11:14:02 2017 Christian Betta
+** Last update Tue Apr 11 15:20:40 2017 Christian Betta
 */
 
-#include "include/my.h"
+//#include "include/my.h"
+#include"my.h"
 
 int     verif_en(char *str)
 {

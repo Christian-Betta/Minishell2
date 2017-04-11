@@ -5,10 +5,11 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 19:12:02 2017 Christian Betta
-** Last update Tue Apr 11 14:48:21 2017 Christian Betta
+** Last update Tue Apr 11 15:20:00 2017 Christian Betta
 */
 
-#include "include/my.h"
+//#include "include/my.h"
+#include "my.h"
 
 void    my_pid(t_mini c, char **envp)
 {

@@ -5,10 +5,11 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Tue Apr  4 17:05:49 2017 Christian Betta
-** Last update Mon Apr 10 16:38:22 2017 Christian Betta
+** Last update Tue Apr 11 15:20:50 2017 Christian Betta
 */
 
-#include "include/my.h"
+//#include "include/my.h"
+#include"my.h"
 
 void    my_put_str_tab_path(char **tabl)
 {

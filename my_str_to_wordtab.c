@@ -5,10 +5,11 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 17:27:24 2017 Christian Betta
-** Last update Mon Apr 10 17:05:30 2017 Christian Betta
+** Last update Tue Apr 11 15:21:17 2017 Christian Betta
 */
 
-#include "include/my.h"
+//#include "include/my.h"
+#include"my.h"
 
 int     count_word(char *str, char carac)
 {

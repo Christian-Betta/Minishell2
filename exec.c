@@ -5,10 +5,11 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Mon Apr 10 14:18:35 2017 Christian Betta
-** Last update Mon Apr 10 17:11:53 2017 Christian Betta
+** Last update Tue Apr 11 15:20:12 2017 Christian Betta
 */
 
-#include "include/my.h"
+//#include "include/my.h"
+#include"my.h"
 
 int     exec_all(t_mini ex)
 {
