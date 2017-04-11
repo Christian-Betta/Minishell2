@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 18:24:46 2017 Christian Betta
-** Last update Tue Apr 11 11:14:27 2017 Christian Betta
+** Last update Tue Apr 11 14:33:18 2017 Christian Betta
 */
 
 #include <sys/wait.h>
@@ -42,6 +42,13 @@ typedef struct  s_var
   int           b;
   int           a;
 }               t_var;
+
+typedef struct s_mypid
+{
+  int   a;
+  char  *str;
+  char  *fus;
+}		t_mypid;
 
 typedef struct s_exec
 {

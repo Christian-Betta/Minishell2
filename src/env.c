@@ -5,32 +5,30 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 19:12:02 2017 Christian Betta
-** Last update Tue Apr 11 11:08:21 2017 Christian Betta
+** Last update Tue Apr 11 14:48:21 2017 Christian Betta
 */
 
 #include "include/my.h"
 
 void    my_pid(t_mini c, char **envp)
 {
-  int	a;
-  char	*str;
-  char	*fus;
+  t_mypid	p;
 
-  fus = malloc(sizeof(char) * 200);
-  str = malloc(sizeof(char) * 200);
-  getcwd(str, 200);
-  fus = mystrcat("PWD=", str + 1);
-  envp[pos(envp)] = fus;
+  p.fus = malloc(sizeof(char) * 200);
+  p.str = malloc(sizeof(char) * 200);
+  getcwd(p.str, 200);
+  p.fus = mystrcat("PWD=", p.str + 1);
+  envp[pos(envp)] = p.fus;
   if (c.pid == 0)
     {
-      a = 0;
-      while (c.array[a])
+      p.a = 0;
+      while (c.array[p.a])
         {
-          c.str_cat = mystrcat(c.array[a], c.argument[0]);
+          c.str_cat = mystrcat(c.array[p.a], c.argument[0]);
           exec_all(c);
-          ++a;
+          ++p.a;
         }
-      if (c.array[a] == NULL || my_strncmp("cd", c.buffer) == -1)
+      if (c.array[p.a] == NULL || my_strncmp("cd", c.buffer) == -1)
 	{
 	  my_putstr(c.buffer);
 	  my_putstr(": Command not found.\n");
