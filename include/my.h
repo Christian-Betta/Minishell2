@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 18:24:46 2017 Christian Betta
-** Last update Mon Apr 10 15:08:29 2017 Christian Betta
+** Last update Tue Apr 11 11:14:27 2017 Christian Betta
 */
 
 #include <sys/wait.h>
@@ -63,7 +63,7 @@ int	chemin(char *str);
 char    **copy_env(char **env);
 void    shell(t_mini control, char **env);
 void    control_c();
-void    cd(t_mini control);
+void    cd(t_mini control, char ** envp);
 char    **my_str_to_wordtab(char *str, char carac);
 int     mystrstr(char *s1, char *s2);
 char    *mystrcat(char *des, char *src);
@@ -71,7 +71,10 @@ void    pid(t_mini control, int a, char **env);
 int     home_path(char **env);
 void    my_exit(char *buffer);
 int	exec_all(t_mini control);
-void    my_pid(t_mini c);
+void    my_pid(t_mini c, char **envp);
+char    *mon_home(char **envp);
+int     pos_home(char ** tabl);
+char    *recup_home(char **tabl);
 void    my_putchar(char c);
 void    my_putstr(char *str);
 int     my_strlen(char *str);
@@ -79,6 +82,7 @@ int     mystrstr(char *s, char *sa);
 char    *mystrcat(char *dest, char *src);
 void	my_putstr2(char *str);
 void    my_exec_prog(t_mini ex, char **envp);
+int     pos(char **tabl);
 int     my_strncmp(char *s1, char *s2);
 int     verif_en(char *str);
 void    multi_str(char *str1, char *str2);

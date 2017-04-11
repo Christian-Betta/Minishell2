@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 17:27:05 2017 Christian Betta
-** Last update Mon Apr 10 17:21:50 2017 Christian Betta
+** Last update Tue Apr 11 10:41:56 2017 Christian Betta
 */
 
 #include "include/my.h"
@@ -14,7 +14,7 @@ void    commande_unique(t_mini c, char **envp)
 {
   c.argument = my_str_to_wordtab(c.buffer, ' ');
   if (my_strncmp("cd", c.argument[0]) == 0)
-    cd(c);
+    cd(c, envp);
   else if ((c.buffer[0] == '.' && c.buffer[1] == '/') || chemin(c.buffer) == 1)
     my_exec_prog(c, envp);
   else if (my_strncmp("PATH", c.buffer) == 0)
@@ -25,7 +25,7 @@ void    commande_unique(t_mini c, char **envp)
   else if ((c.pid = fork()) == -1)
     exit (0);
   else
-    my_pid(c);
+    my_pid(c, envp);
   my_putstr("> ");
 }
 
@@ -40,7 +40,7 @@ void    commande_multiple(t_mini c, char **envp)
       c.argument = my_str_to_wordtab(c.cmd[c.i], ' ');
       if (my_strncmp("cd ..", c.cmd[c.i]) == 0 ||
           my_strncmp("cd", c.cmd[c.i]) == 0)
-        cd(c);
+        cd(c, envp);
       else if ((chemin(c.cmd[c.i]) == 1) ||
 	       (c.cmd[c.i][0] == '.' && c.cmd[c.i][1] == '/'))
 	my_exec_prog(c, envp);
@@ -52,7 +52,7 @@ void    commande_multiple(t_mini c, char **envp)
       else if ((c.pid = fork()) == -1)
 	exit (0);
       else
-	my_pid(c);
+	my_pid(c, envp);
       my_putstr("> ");
       c.i++;
     }

@@ -5,15 +5,22 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 19:12:02 2017 Christian Betta
-** Last update Mon Apr 10 17:56:06 2017 Christian Betta
+** Last update Tue Apr 11 11:08:21 2017 Christian Betta
 */
 
 #include "include/my.h"
 
-void    my_pid(t_mini c)
+void    my_pid(t_mini c, char **envp)
 {
   int	a;
+  char	*str;
+  char	*fus;
 
+  fus = malloc(sizeof(char) * 200);
+  str = malloc(sizeof(char) * 200);
+  getcwd(str, 200);
+  fus = mystrcat("PWD=", str + 1);
+  envp[pos(envp)] = fus;
   if (c.pid == 0)
     {
       a = 0;
@@ -34,7 +41,7 @@ void    my_pid(t_mini c)
     wait(&c.status);
 }
 
-void             cd(t_mini cd)
+void             cd(t_mini cd, char **envp)
 {
   char **tabl;
 
@@ -43,14 +50,14 @@ void             cd(t_mini cd)
   if ((my_strncmp("cd", tabl[0])) == 0)
     {
       if (tabl[1] == NULL)
-	chdir("/home/");
+	chdir(mon_home(envp));
       else
 	chdir(tabl[1]);
     }
   free(tabl);
 }
 
-char    *find_pwd(char **tabl)
+int	pos(char **tabl)
 {
   int   i;
   int   b;
@@ -60,10 +67,10 @@ char    *find_pwd(char **tabl)
     {
       if (tabl[i][0] == 'P' && tabl[i][1] == 'W'
 	  && tabl[i][2] == 'D' && tabl[i][3] == '=')
-	b = i;
+	return (i);
       i++;
     }
-  return (tabl[b]);
+  return (0);
 }
 
 char    **copy_env(char **envp)
