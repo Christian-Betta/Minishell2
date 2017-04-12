@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 18:24:46 2017 Christian Betta
-** Last update Tue Apr 11 14:33:18 2017 Christian Betta
+** Last update Wed Apr 12 16:50:13 2017 Christian Betta
 */
 
 #include <sys/wait.h>
@@ -80,6 +80,10 @@ void    my_exit(char *buffer);
 int	exec_all(t_mini control);
 void    my_pid(t_mini c, char **envp);
 char    *mon_home(char **envp);
+int     find_name(char **envp, char *str);
+int     find_env(char **tabl);
+void    un_env(t_mini c, char **envp);
+void    set_env(t_mini v, char **envp);
 int     pos_home(char ** tabl);
 char    *recup_home(char **tabl);
 void    my_putchar(char c);

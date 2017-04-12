@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 17:27:05 2017 Christian Betta
-** Last update Tue Apr 11 15:20:28 2017 Christian Betta
+** Last update Wed Apr 12 16:41:42 2017 Christian Betta
 */
 
 //#include "include/my.h"
@@ -79,7 +79,12 @@ void    test_exit(t_mini c, char **envp)
           exit(0);
         }
       c.buffer = my_epure(c.buffer);
-      if (my_strncmp("exit", c.buffer) != 0)
+      if (c.buffer[0] == 's' && c.buffer[1] == 'e' && c.buffer[2] == 't')
+	set_env(c, envp);
+      else if (c.buffer[0] == 'u' && c.buffer[1] == 'n'
+	       && c.buffer[2] == 's' && c.buffer[3] == 'e' && c.buffer[4] == 't')
+	un_env(c, envp);
+      else if (my_strncmp("exit", c.buffer) != 0)
 	shell(c, envp);
       else
         my_exit(c.buffer);
@@ -99,5 +104,5 @@ int	main(int ac, char **av, char **envp)
   test_exit(c, envp);
   free(c.my_env);
   free(c.buffer);
-   return (0);
+  return (1);
 }

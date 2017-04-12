@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 19:12:02 2017 Christian Betta
-** Last update Tue Apr 11 15:20:00 2017 Christian Betta
+** Last update Wed Apr 12 16:30:04 2017 Christian Betta
 */
 
 //#include "include/my.h"
@@ -51,7 +51,16 @@ void             cd(t_mini cd, char **envp)
       if (tabl[1] == NULL)
 	chdir(mon_home(envp));
       else
-	chdir(tabl[1]);
+	{
+	  if (chdir(tabl[1]) == 0)
+	    chdir(tabl[1]);
+	  else
+	    {
+	      my_epure_2(tabl[1]);
+	      my_putstr(tabl[1]);
+	      my_putstr(": No such file or directory.\n");
+	    }
+	}
     }
   free(tabl);
 }
@@ -86,4 +95,33 @@ char    **copy_env(char **envp)
       i++;
     }
   return (tabl);
+}
+
+void	set_env(t_mini v, char **envp)
+{
+  char	**set;
+  int	a;
+  char	*str;
+  char	*tmp;
+
+  str = malloc(sizeof(char) * 100);
+  set = malloc(sizeof(char *) * 100);
+  set = my_str_to_wordtab(v.buffer, ' ');
+  if (set[1] != NULL)
+    {
+      if (find_name(envp, set[1]) != 0)
+	{
+	  a = find_name(envp, set[1]);
+	  str = strcat(set[1], set[2]);
+	  envp[a] = str;
+	}
+      else
+	{
+	  a = find_env(envp);
+	  envp[a] = malloc(sizeof(char) * 100);
+	  str = strcat(set[1], set[2]);
+	  envp[a] = str;
+	}
+    }
+  my_putstr(">");
 }
