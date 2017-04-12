@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Mon Apr 10 14:18:35 2017 Christian Betta
-** Last update Tue Apr 11 16:08:54 2017 Christian Betta
+** Last update Wed Apr 12 17:38:59 2017 Christian Betta
 */
 
 //#include "include/my.h"
@@ -27,28 +27,22 @@ int     exec_all(t_mini ex)
 
 void     my_exec_prog(t_mini ex, char **envp)
 {
-  t_exec	e;
-
-  e.tmp = malloc(sizeof(char *) * 10000);
-  e.tmp[0] = malloc(sizeof(char) * 10000);
-  e.tmp[0] = ex.buffer;
-  e.command = my_str_to_wordtab(ex.buffer, ' ');
-  if (access(e.command[0], X_OK) == 0)
+  ex.a = 0;
+  ex.tmp = malloc(sizeof(char *) * 10000);
+  ex.tmp[0] = malloc(sizeof(char) * 10000);
+  ex.tmp[0] = ex.buffer;
+  ex.command = my_str_to_wordtab(ex.buffer, ' ');
+  if (access(ex.command[0], X_OK) == 0)
     {
-      e.pid = fork();
-      if (e.pid == 0)
-	execve(e.command[0], e.tmp, envp);
-      /* else if (e.pid > 0 && verif_en(ex.buffer) == 1)
-	{
-	  waitpid(e.pid, &e.status, 0);
-	  my_putchar('\n');
-	  }*/
-      else if (e.pid > 0)// && verif_en(ex.buffer) == 0)
-          waitpid(e.pid, &e.status, 0);
-      else if (e.status == 139)
+      ex.pid = fork();
+      if (ex.pid == 0)
+        execve(ex.command[0], ex.tmp, envp);
+      else if (ex.pid > 0)
+	waitpid(ex.pid, &ex.status, 0);
+      if (ex.status == 139)
         my_putstr("Segmentation fault (core dumped)\n");
     }
   else
     multi_str(ex.buffer, ": Command not found.\n");
-  free(e.tmp[0]);
+  free(ex.tmp[0]);
 }

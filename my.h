@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 18:24:46 2017 Christian Betta
-** Last update Wed Apr 12 16:50:13 2017 Christian Betta
+** Last update Wed Apr 12 17:38:11 2017 Christian Betta
 */
 
 #include <sys/wait.h>
@@ -34,6 +34,8 @@ typedef struct  S_minishell
   int		nbr;
   char		**cmd;
   char		*str;
+  char		**tmp;
+  char		**command;
 }               t_mini;
 
 typedef struct  s_var
@@ -92,12 +94,11 @@ int     my_strlen(char *str);
 int     mystrstr(char *s, char *sa);
 char    *mystrcat(char *dest, char *src);
 void	my_putstr2(char *str);
-void    my_exec_prog(t_mini ex, char **envp);
 int     pos(char **tabl);
 int     my_strncmp(char *s1, char *s2);
 int     verif_en(char *str);
 void    multi_str(char *str1, char *str2);
 void    my_put_str_tab_path(char **tabl);
-void	my_exec_progr(t_mini ex);
+void	my_exec_prog(t_mini ex, char **envp);
 
 #endif /* !MY_H_H_ */

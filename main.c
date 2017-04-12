@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 17:27:05 2017 Christian Betta
-** Last update Wed Apr 12 16:41:42 2017 Christian Betta
+** Last update Wed Apr 12 17:04:29 2017 Christian Betta
 */
 
 //#include "include/my.h"
@@ -13,6 +13,8 @@
 
 void    commande_unique(t_mini c, char **envp)
 {
+  int	stat;
+
   c.argument = my_str_to_wordtab(c.buffer, ' ');
   if (my_strncmp("cd", c.argument[0]) == 0)
     cd(c, envp);
