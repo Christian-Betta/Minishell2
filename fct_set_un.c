@@ -5,21 +5,24 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Wed Apr 12 10:31:53 2017 Christian Betta
-** Last update Wed Apr 12 16:29:42 2017 Christian Betta
+** Last update Thu Apr 13 11:09:04 2017 Christian Betta
 */
+
+#include "my.h"
 
 int	find_name(char **envp, char *str)
 {
   int	i;
 
   i = 0;
-  while (envp[i])
-    {
-      if (envp[i][0] == str[0] && envp[i][1] == str[1]
-	  && envp[i][2] == str[2] && envp[i][3] == str[3])
-	return (i);
-      i++;
-    }
+  if (str != NULL)
+    while (envp[i])
+      {
+	if (envp[i][0] == str[0] && envp[i][1] == str[1]
+	    && envp[i][2] == str[2] && envp[i][3] == str[3])
+	  return (i);
+	i++;
+      }
   return (0);
 }
 
