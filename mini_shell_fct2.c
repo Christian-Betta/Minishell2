@@ -1,14 +1,13 @@
 /*
-1;2802;0c** mini_shell_fct2.c for  in /home/christian.betta/All_Job/Minishell/PSU_2016_minishell2/src
+** mini_shell_fct2.c for  in /home/christian.betta/All_Job/Minishell/PSU_2016_minishell2/src
 **
 ** Made by Christian Betta
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Mon Apr 10 14:32:39 2017 Christian Betta
-** Last update Tue Apr 11 15:20:40 2017 Christian Betta
+** Last update Thu Apr 13 10:59:28 2017 Christian Betta
 */
 
-//#include "include/my.h"
 #include"my.h"
 
 int     verif_en(char *str)

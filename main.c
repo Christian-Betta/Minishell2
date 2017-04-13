@@ -5,10 +5,9 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 17:27:05 2017 Christian Betta
-** Last update Thu Apr 13 09:55:12 2017 Christian Betta
+** Last update Thu Apr 13 10:57:23 2017 Christian Betta
 */
 
-//#include "include/my.h"
 #include"my.h"
 
 void    commande_unique(t_mini c, char **envp)

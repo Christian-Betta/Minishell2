@@ -5,10 +5,9 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Mon Apr 10 13:26:48 2017 Christian Betta
-** Last update Tue Apr 11 15:21:01 2017 Christian Betta
+** Last update Thu Apr 13 10:59:14 2017 Christian Betta
 */
 
-//#include "include/my.h"
 #include"my.h"
 
 char    *my_epure(char *src)

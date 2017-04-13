@@ -1,11 +1,11 @@
 /*
-** my_put_nbr.c for my_put_nbr in /home/mayans_k/Workspace/CPool_Day03
+** my_put_nbr.c for  in /home/christian.betta/All_Job/Minishell/PSU_2016_minishell2
 **
-** Made by Kilian Mayans
-** Login   <mayans_k@epitech.net>
+** Made by Christian Betta
+** Login   <christian.betta@epitech.net>
 **
-** Started on  Thu Oct  6 08:09:53 2016 Kilian Mayans
-** Last update Fri Mar 17 15:07:47 2017 Christian Betta
+** Started on  Thu Apr 13 10:58:08 2017 Christian Betta
+** Last update Thu Apr 13 10:58:09 2017 Christian Betta
 */
 
 #include "my.h"

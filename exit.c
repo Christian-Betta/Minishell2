@@ -5,10 +5,9 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 19:11:56 2017 Christian Betta
-** Last update Tue Apr 11 15:20:19 2017 Christian Betta
+** Last update Thu Apr 13 10:57:16 2017 Christian Betta
 */
 
-//#include "include/my.h"
 #include"my.h"
 
 void            control_c()
