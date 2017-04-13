@@ -5,13 +5,14 @@
 ## Login   <christian.betta@epitech.net>
 ## 
 ## Started on  Thu Mar 23 17:54:25 2017 Christian Betta
-## Last update Wed Apr 12 16:35:25 2017 Christian Betta
+## Last update Thu Apr 13 09:36:44 2017 Christian Betta
 ##
 
 SRC	=	exit.c			\
 		fct_set_un.c		\
 		env.c			\
 		main.c			\
+		pipe.c			\
 		env_2.c			\
 		my_put_nbr.c		\
 		my_str_to_wordtab.c	\

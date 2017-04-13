@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 17:27:05 2017 Christian Betta
-** Last update Wed Apr 12 17:04:29 2017 Christian Betta
+** Last update Thu Apr 13 09:55:12 2017 Christian Betta
 */
 
 //#include "include/my.h"
@@ -63,6 +63,8 @@ void    commande_multiple(t_mini c, char **envp)
 
 void            shell(t_mini c, char **envp)
 {
+  if (nbr_pipe(c.buffer) != 0)
+    c.buffer = epure_pipe(c.buffer);
   if (nbr_comm(c.buffer) == 0)
     commande_unique(c, envp);
   else

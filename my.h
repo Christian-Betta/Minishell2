@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 18:24:46 2017 Christian Betta
-** Last update Wed Apr 12 17:38:11 2017 Christian Betta
+** Last update Thu Apr 13 10:01:29 2017 Christian Betta
 */
 
 #include <sys/wait.h>
@@ -60,6 +60,13 @@ typedef struct s_exec
   char  **tmp;
 }		t_exec;
 
+typedef struct s_pipe
+{
+  int   i;
+  int   a;
+  char  *dest;
+}		t_pipe;
+
 int     nbr_comm(char *str);
 char    *get_next_line(int fd);
 char    *get_next_line_dbg(int fd);
@@ -77,6 +84,8 @@ char    **my_str_to_wordtab(char *str, char carac);
 int     mystrstr(char *s1, char *s2);
 char    *mystrcat(char *des, char *src);
 void    pid(t_mini control, int a, char **env);
+char    *epure_pipe(char *str);
+int     nbr_pipe(char *str);
 int     home_path(char **env);
 void    my_exit(char *buffer);
 int	exec_all(t_mini control);
