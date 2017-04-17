@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Tue Apr  4 17:05:49 2017 Christian Betta
-** Last update Thu Apr 13 10:57:40 2017 Christian Betta
+** Last update Thu Apr 13 18:09:31 2017 Christian Betta
 */
 
 #include"my.h"
@@ -46,20 +46,25 @@ char	*my_epure_2(char *str)
   a = 0;
   i = 0;
   dest = malloc(sizeof(char) * 1000);
-  i = 0;
-  while (str[i] != '\0')
+  if (str != NULL)
     {
-      if (str[i] == ' ' || str[i] == '\t')
-	i++;
-      else
+      while (str[i])
 	{
-	  dest[a] = str[i];
-	  a++;
-	  i++;
+	  if (str[i] == ' ' || str[i] == '\t')
+	    i++;
+	  else
+	    {
+	      dest[a] = str[i];
+	      a++;
+	      i++;
+	    }
 	}
+
+      dest[a] = 0;
+      return (dest);
     }
-  dest[a] = 0;
-  return (dest);
+  else
+    return (NULL);
 }
 
 int     nbr_comm(char *str)
@@ -82,11 +87,12 @@ int     chemin(char *str)
   int   i;
 
   i = 0;
-  while (str[i] != '\0')
-    {
-      if (str[i] == '/')
-	return (1);
-      i++;
-    }
+  if (str != NULL)
+    while (str[i] != '\0')
+      {
+	if (str[i] == '/')
+	  return (1);
+	i++;
+      }
   return (0);
 }

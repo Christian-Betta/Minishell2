@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Mon Apr 10 13:26:48 2017 Christian Betta
-** Last update Thu Apr 13 10:59:14 2017 Christian Betta
+** Last update Thu Apr 13 17:37:28 2017 Christian Betta
 */
 
 #include"my.h"
@@ -23,10 +23,39 @@ char    *my_epure(char *src)
       size = size - 2;
       size++;
     }
-  while ((*src == ' ' || *src == '\t')
-	 && *src != '\0')
+  while ((*src == ' ' || *src == '\t' ) && *src != '\0')
     src = src + 1;
   return (src);
+}
+
+char	*my_epure_3(char *str)
+{
+  int	i;
+  int	a;
+  char	*dest;
+  int	b;
+
+  i = 0;
+  a = 0;
+  dest = malloc(sizeof(char) * 100);
+  while (str[i] == ' ' || str[i] == '\t')
+    i++;
+  if (str[i] != '\0')
+    {
+      while (str[i] && b <=1)
+	{
+	  if (str[i] == ' ')
+	    {
+	      b++;
+	      i++;
+	      while (str[i] == ' ')
+		i++;
+	    }
+	  dest[a] = str[i];
+	  i++;
+	  a++;
+	}
+    }
 }
 
 int     my_strncmp(char *s1, char *s2)

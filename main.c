@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 17:27:05 2017 Christian Betta
-** Last update Thu Apr 13 10:57:23 2017 Christian Betta
+** Last update Mon Apr 17 11:07:29 2017 Christian Betta
 */
 
 #include"my.h"
@@ -22,24 +22,24 @@ void    commande_unique(t_mini c, char **envp)
   else if (my_strncmp("PATH", c.buffer) == 0)
     {
       my_put_str_tab_path(c.array);
-      my_putchar('\n');
+     my_putchar('\n');
     }
   else if ((c.pid = fork()) == -1)
     exit (0);
   else
     my_pid(c, envp);
-  my_putstr("> ");
 }
 
 void    commande_multiple(t_mini c, char **envp)
 {
   c.i = 0;
+  c.buffer = my_epure(c.buffer);
   c.nbr = nbr_comm(c.buffer);
-  c.buffer = my_epure_2(c.buffer);
   c.cmd = my_str_to_wordtab(c.buffer, ';');
   while (c.i <= c.nbr)
     {
       c.argument = my_str_to_wordtab(c.cmd[c.i], ' ');
+      c.cmd[c.i] = my_epure_2(c.cmd[c.i]);
       if (my_strncmp("cd ..", c.cmd[c.i]) == 0 ||
           my_strncmp("cd", c.cmd[c.i]) == 0)
         cd(c, envp);
@@ -55,7 +55,6 @@ void    commande_multiple(t_mini c, char **envp)
 	exit (0);
       else
 	my_pid(c, envp);
-      my_putstr("> ");
       c.i++;
     }
 }
@@ -74,6 +73,8 @@ void    test_exit(t_mini c, char **envp)
 {
   while (42)
     {
+      if (isatty(0) == 1)
+	my_putstr("> ");
       c.buffer = get_next_line(0);
       if (c.buffer == NULL)
         {
@@ -101,7 +102,6 @@ int	main(int ac, char **av, char **envp)
   c.my_env = malloc(sizeof(char *) * (1000000));
   c.buffer = malloc(sizeof(char) * (1000));
   c.my_env = envp;
-  my_putstr("> ");
   signal(SIGINT, control_c);
   c.array = copy_env(envp);
   test_exit(c, envp);
