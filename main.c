@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 17:27:05 2017 Christian Betta
-** Last update Mon Apr 17 11:07:29 2017 Christian Betta
+** Last update Mon Apr 17 13:49:16 2017 Christian Betta
 */
 
 #include"my.h"
@@ -14,10 +14,12 @@ void    commande_unique(t_mini c, char **envp)
 {
   int	stat;
 
+  //c.buffer = my_epure(c.buffer);
+  //my_putstr(c.buffer);
   c.argument = my_str_to_wordtab(c.buffer, ' ');
   if (my_strncmp("cd", c.argument[0]) == 0)
     cd(c, envp);
-  else if ((c.buffer[0] == '.' && c.buffer[1] == '/') || chemin(c.buffer) == 1)
+  else if ((c.buffer[0] == '.' && c.buffer[1] == '/'))// || chemin(c.buffer) == 1)
     my_exec_prog(c, envp);
   else if (my_strncmp("PATH", c.buffer) == 0)
     {
@@ -33,7 +35,8 @@ void    commande_unique(t_mini c, char **envp)
 void    commande_multiple(t_mini c, char **envp)
 {
   c.i = 0;
-  c.buffer = my_epure(c.buffer);
+  c.buffer = my_epure_2_arg(c.buffer);
+  my_putstr(c.buffer);
   c.nbr = nbr_comm(c.buffer);
   c.cmd = my_str_to_wordtab(c.buffer, ';');
   while (c.i <= c.nbr)
@@ -43,8 +46,7 @@ void    commande_multiple(t_mini c, char **envp)
       if (my_strncmp("cd ..", c.cmd[c.i]) == 0 ||
           my_strncmp("cd", c.cmd[c.i]) == 0)
         cd(c, envp);
-      else if ((chemin(c.cmd[c.i]) == 1) ||
-	       (c.cmd[c.i][0] == '.' && c.cmd[c.i][1] == '/'))
+      else if (c.cmd[c.i][0] == '.' && c.cmd[c.i][1] == '/')
 	my_exec_prog(c, envp);
       else if (my_strncmp("PATH", c.cmd[c.i]) == 0)
 	{

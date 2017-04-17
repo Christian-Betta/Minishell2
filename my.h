@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 18:24:46 2017 Christian Betta
-** Last update Thu Apr 13 18:41:05 2017 Christian Betta
+** Last update Mon Apr 17 13:17:41 2017 Christian Betta
 */
 
 #include <sys/wait.h>
@@ -75,6 +75,7 @@ void	commande_unique(t_mini c, char **envp);
 char    *my_epure(char *src);
 char    *my_epure_2(char *src);
 void    test_exit(t_mini c, char **envp);
+char    *my_epure_2_arg(char *str);
 int	chemin(char *str);
 char    **copy_env(char **env);
 void    shell(t_mini control, char **env);

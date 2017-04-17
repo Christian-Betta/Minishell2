@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Wed Apr 12 16:30:14 2017 Christian Betta
-** Last update Wed Apr 12 16:47:38 2017 Christian Betta
+** Last update Mon Apr 17 12:00:48 2017 Christian Betta
 */
 
 #include "my.h"
@@ -23,6 +23,5 @@ void	un_env(t_mini c, char **envp)
       envp[a] = malloc(sizeof(char) * -1);
     }
   else
-    my_putstr("fail");
-  my_putstr(">");
+    my_putstr("unset: Too few arguments.\n");
 }

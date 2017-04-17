@@ -5,7 +5,7 @@
 ## Login   <christian.betta@epitech.net>
 ## 
 ## Started on  Thu Mar 23 17:54:25 2017 Christian Betta
-## Last update Thu Apr 13 18:41:15 2017 Christian Betta
+## Last update Mon Apr 17 13:02:45 2017 Christian Betta
 ##
 
 SRC	=	exit.c			\
@@ -20,7 +20,8 @@ SRC	=	exit.c			\
 		exec.c			\
 		my_basique_fct2.c	\
 		mini_shell_fct.c	\
-		mini_shell_fct2.c
+		mini_shell_fct2.c	\
+		mini_shell_fct3.c	
 
 ##CFLAGS	=	-Wextra -Wall -g
 

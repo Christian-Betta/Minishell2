@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Tue Apr  4 17:05:49 2017 Christian Betta
-** Last update Thu Apr 13 18:09:31 2017 Christian Betta
+** Last update Mon Apr 17 13:33:17 2017 Christian Betta
 */
 
 #include"my.h"
@@ -59,7 +59,6 @@ char	*my_epure_2(char *str)
 	      i++;
 	    }
 	}
-
       dest[a] = 0;
       return (dest);
     }
