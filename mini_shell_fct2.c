@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Mon Apr 10 14:32:39 2017 Christian Betta
-** Last update Thu Apr 13 10:59:28 2017 Christian Betta
+** Last update Tue Apr 18 14:33:16 2017 Christian Betta
 */
 
 #include"my.h"
@@ -56,7 +56,7 @@ int	pos_home(char ** tabl)
       if (tabl[a][0] == 'H' && tabl[a][0] == 'O' &&
 	  tabl[a][0] == 'M' && tabl[a][0] == 'E' && tabl[a][0] == '=')
 	return (a);
-      a++;
+     a++;
     }
   return (0);
 }
