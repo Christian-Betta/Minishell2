@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Tue Apr  4 17:05:49 2017 Christian Betta
-** Last update Mon Apr 17 13:33:17 2017 Christian Betta
+** Last update Tue Apr 18 14:10:30 2017 Christian Betta
 */
 
 #include"my.h"
@@ -89,7 +89,7 @@ int     chemin(char *str)
   if (str != NULL)
     while (str[i] != '\0')
       {
-	if (str[i] == '/')
+	if (str[i] == '/' && str[i - 1] != ' ')
 	  return (1);
 	i++;
       }
