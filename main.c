@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 17:27:05 2017 Christian Betta
-** Last update Tue May  2 15:01:28 2017 Christian Betta
+** Last update Tue May  2 15:43:47 2017 Christian Betta
 */
 
 #include"my.h"
@@ -34,7 +34,6 @@ void    commande_multiple(t_mini *c, char **envp)
 {
   c->i = 0;
   c->buffer = my_epure_2_arg(c->buffer);
-  my_putstr(c->buffer);
   c->nbr = nbr_comm(c->buffer);
   c->cmd = my_str_to_wordtab(c->buffer, ';');
   while (c->i <= c->nbr)
@@ -74,7 +73,7 @@ void    test_exit(t_mini *c, char **envp)
 {
   while (42)
     {
-      if (isatty(0) == 1)
+      if (isatty(0))
 	my_putstr("> ");
       c->buffer = get_next_line(0);
       if (c->buffer == NULL)
@@ -84,7 +83,9 @@ void    test_exit(t_mini *c, char **envp)
           exit(c->ret);
         }
       c->buffer = my_epure(c->buffer);
-      if (c->buffer[0] == 'e' && c->buffer[1] == 'x'
+      if (c->buffer[0] == 'e' && c->buffer[1] == 'n' && c->buffer[2] == 'v')
+	my_put_str_tab(envp);
+      else if (c->buffer[0] == 'e' && c->buffer[1] == 'x'
 	  && c->buffer[2] == 'i' && c->buffer[3] == 't' && c->buffer[4] == 't')
 	{
 	  my_putstr("exitt: Command not found.\n");

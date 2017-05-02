@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 19:12:02 2017 Christian Betta
-** Last update Tue May  2 15:11:05 2017 Christian Betta
+** Last update Tue May  2 15:36:54 2017 Christian Betta
 */
 
 #include "my.h"
@@ -20,7 +20,7 @@ void	my_pid(t_mini *c, char **envp)
   getcwd(p->str, 200);
   p->fus = mystrcat("PWD=", p->str + 1);
   envp[pos(envp)] = p->fus;
-  if (c->mypid == 0)
+  if (c->mypid == 0 && my_strncmp("env", c->buffer) != 0)
     {
       p->a = 0;
       while (c->array[p->a])
@@ -35,7 +35,7 @@ void	my_pid(t_mini *c, char **envp)
 	  my_putstr(c->buffer);
 	  my_putstr(": Command not found.\n");
 	  c->ret= 1;
-	  exit(84);
+	  exit(1);
 	}
       c->ret = 1;
     }

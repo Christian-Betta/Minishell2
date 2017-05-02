@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 18:24:46 2017 Christian Betta
-** Last update Tue May  2 15:09:35 2017 Christian Betta
+** Last update Tue May  2 15:46:19 2017 Christian Betta
 */
 
 #include <sys/wait.h>
@@ -81,6 +81,7 @@ char    *my_epure_2_arg(char *str);
 int	chemin(char *str);
 char    **copy_env(char **env);
 void    shell(t_mini *control, char **env);
+void	my_put_str_tab(char **tabl);
 void    control_c();
 void    my_put_nbr(int nb);
 void	cd(t_mini *control, char ** envp);
