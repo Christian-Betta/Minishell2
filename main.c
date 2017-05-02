@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 17:27:05 2017 Christian Betta
-** Last update Tue Apr 18 15:02:53 2017 Christian Betta
+** Last update Tue May  2 11:21:05 2017 Christian Betta
 */
 
 #include"my.h"
@@ -24,7 +24,7 @@ void    commande_unique(t_mini *c, char **envp)
       my_put_str_tab_path(c->array);
      my_putchar('\n');
     }
-  else if ((c->pid = fork()) == -1)
+  else if ((c->mypid = fork()) == -1)
     exit (c->ret);
   else
     my_pid(c, envp);
@@ -52,7 +52,7 @@ void    commande_multiple(t_mini *c, char **envp)
           my_put_str_tab_path(c->array);
           my_putchar('\n');
         }
-      else if ((c->pid = fork()) == -1)
+      else if ((c->mypid = fork()) == -1)
 	exit (0);
       else
 	my_pid(c, envp);
@@ -84,7 +84,13 @@ void    test_exit(t_mini *c, char **envp)
           exit(c->ret);
         }
       c->buffer = my_epure(c->buffer);
-      if (c->buffer[0] == 's' && c->buffer[1] == 'e' && c->buffer[2] == 't')
+      if (c->buffer[0] == 'e' && c->buffer[1] == 'x'
+	  && c->buffer[2] == 'i' && c->buffer[3] == 't' && c->buffer[4] == 't')
+	{
+	  my_putstr("exitt: Command not found.\n");
+	  c->ret = 1;
+	}
+      else if (c->buffer[0] == 's' && c->buffer[1] == 'e' && c->buffer[2] == 't')
 	set_env(c, envp);
       else if (c->buffer[0] == 'u' && c->buffer[1] == 'n'
 	       && c->buffer[2] == 's' && c->buffer[3] == 'e' && c->buffer[4] == 't')

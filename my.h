@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 18:24:46 2017 Christian Betta
-** Last update Tue Apr 18 14:54:04 2017 Christian Betta
+** Last update Tue Apr 25 14:23:42 2017 Christian Betta
 */
 
 #include <sys/wait.h>
@@ -28,7 +28,7 @@ typedef struct  S_minishell
   int           status;
   int           fd;
   char          **argument;
-  pid_t         pid;
+  pid_t         mypid;
   char          *buffer;
   int		a;
   int		i;

@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Mon Apr 10 14:18:35 2017 Christian Betta
-** Last update Tue Apr 18 14:57:26 2017 Christian Betta
+** Last update Tue Apr 25 14:24:55 2017 Christian Betta
 */
 
 #include"my.h"
@@ -33,11 +33,11 @@ void     my_exec_prog(t_mini *ex, char **envp)
   ex->command = my_str_to_wordtab(ex->buffer, ' ');
   if (access(ex->command[0], X_OK) == 0)
     {
-      ex->pid = fork();
-      if (ex->pid == 0)
+      ex->mypid = fork();
+      if (ex->mypid == 0)
         execve(ex->command[0], ex->tmp, envp);
-      else if (ex->pid > 0)
-	waitpid(ex->pid, &ex->status, 0);
+      else if (ex->mypid > 0)
+	waitpid(ex->mypid, &ex->status, 0);
       if (ex->status == 139)
 	{
 	  my_putstr("Segmentation fault (core dumped)\n");
