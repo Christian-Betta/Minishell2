@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 19:12:02 2017 Christian Betta
-** Last update Tue May  2 11:15:00 2017 Christian Betta
+** Last update Tue May  2 14:24:32 2017 Christian Betta
 */
 
 #include "my.h"
@@ -48,7 +48,6 @@ void	cd(t_mini *cd, char **envp)
   cd->buffer = my_epure(cd->buffer);
   tabl = malloc(sizeof(char *) * 10);
   tabl = my_str_to_wordtab(cd->buffer,' ');
-  tabl[0] = my_epure_2(tabl[0]);
   if ((my_strncmp("cd", tabl[0])) == 0)
     {
       if (tabl[1] == NULL)
