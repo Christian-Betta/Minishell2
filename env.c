@@ -1,11 +1,11 @@
 /*
-** shell2.c for  in /home/christian.betta/Minishell/PSU_2016_minishell1
+1;2802;0c** shell2.c for  in /home/christian.betta/Minishell/PSU_2016_minishell1
 **
 ** Made by Christian Betta
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 19:12:02 2017 Christian Betta
-** Last update Tue May  2 14:24:32 2017 Christian Betta
+** Last update Tue May  2 15:11:05 2017 Christian Betta
 */
 
 #include "my.h"
@@ -29,15 +29,16 @@ void	my_pid(t_mini *c, char **envp)
 	  exec_all(c);
 	  p->a++;
 	}
-      if (c->array[p->a] == NULL)
+      if (c->array[p->a] == 0 && my_strncmp("cd", c->buffer) == -1 ||
+	  my_strncmp("cd", c->buffer))
 	{
 	  my_putstr(c->buffer);
 	  my_putstr(": Command not found.\n");
-	  c->ret = 1;
+	  c->ret= 1;
+	  exit(84);
 	}
+      c->ret = 1;
     }
-  else
-    wait(&c->status);
 }
 
 void	cd(t_mini *cd, char **envp)

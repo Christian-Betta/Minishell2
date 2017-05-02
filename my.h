@@ -5,7 +5,7 @@
 ** Login   <christian.betta@epitech.net>
 **
 ** Started on  Thu Mar 23 18:24:46 2017 Christian Betta
-** Last update Tue Apr 25 14:23:42 2017 Christian Betta
+** Last update Tue May  2 15:09:35 2017 Christian Betta
 */
 
 #include <sys/wait.h>
@@ -37,6 +37,7 @@ typedef struct  S_minishell
   char		*str;
   char		**tmp;
   char		**command;
+  int		av;
 }               t_mini;
 
 typedef struct  s_var
@@ -81,6 +82,7 @@ int	chemin(char *str);
 char    **copy_env(char **env);
 void    shell(t_mini *control, char **env);
 void    control_c();
+void    my_put_nbr(int nb);
 void	cd(t_mini *control, char ** envp);
 char    **my_str_to_wordtab(char *str, char carac);
 int     mystrstr(char *s1, char *s2);
