@@ -1,51 +1,60 @@
 ##
-## Makefile for  in /home/christian.betta/minishel/Minishell1-master
+## Makefile for  in /home/christian.betta/All_Job/Minishell/PSU_2016_minishell2
 ## 
 ## Made by Christian Betta
 ## Login   <christian.betta@epitech.net>
 ## 
-## Started on  Thu Mar 23 17:54:25 2017 Christian Betta
-## Last update Mon Apr 17 13:02:45 2017 Christian Betta
+## Started on  Tue May  9 14:09:50 2017 Christian Betta
+## Last update Tue May  9 14:10:07 2017 Christian Betta
 ##
 
-SRC	=	exit.c			\
-		fct_set_un.c		\
-		env.c			\
-		main.c			\
-		pipe.c			\
-		env_2.c			\
-		my_put_nbr.c		\
-		my_str_to_wordtab.c	\
-		my_basique_fct.c	\
-		exec.c			\
-		my_basique_fct2.c	\
-		mini_shell_fct.c	\
-		mini_shell_fct2.c	\
-		mini_shell_fct3.c	
+SRC	=	$(addprefix src/,	\
+		42sh.c			\
+		get_next_line.c		\
+		my_strcmp.c		\
+		my_strncmp.c		\
+		concatener.c		\
+		my_getnbr.c		\
+		check_access.c		\
+		my_exec_fonctions.c	\
+		check_env.c		\
+		check_divers.c		\
+		check_cd.c		\
+		my_cd_moins.c		\
+		change_pwd.c		\
+		print_env.c		\
+		my_setenv.c		\
+		my_unsetenv.c		\
+		verif.c			\
+		epur_pv.c		\
+		pv.c			\
+		find_in_env.c		\
+		check_pipe.c		\
+		run_pipe.c		\
+		my_puterror.c		\
+		)
 
-##CFLAGS	=	-Wextra -Wall -g
+OBJ	= $(SRC:.c=.o)
 
-LIBS	=	-L. -lgnl 
+RM	= rm -f
 
-OBJS	=	$(SRC:.c=.o)
+CC	= gcc
 
-RM	=	rm -f
+AR	= ar
 
-CC	=	gcc
+NAME	= mysh
 
-NAME	=	mysh
+CFLAGS  += -W -Wall -Wextra -g3 -I./include -L./src -lprintf
 
-all: $(NAME)
+all:	$(NAME)
 
-$(NAME):	$(OBJS)
-	$(CC)	$(OBJS) -o $(NAME) $(LIBS) 
+$(NAME): $(OBJ)
+	 $(CC) -o $(NAME) $(OBJ) $(CFLAGS)
 
 clean:
-	$(RM)	$(OBJS)
+	$(RM) $(OBJ)
 
-fclean: clean
+fclean:	clean
 	$(RM) $(NAME)
 
-re: fclean all
-
-.PHONY: all clean fclean re
+re: 	fclean all
